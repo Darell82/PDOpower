@@ -1,6 +1,7 @@
 table tr td {
-  border: 1px solid black;
+  border: 2px solid black;
   color: black;
-  background-color: #2E8B57;
+  border-color: #2E8B57;
   border-radius: 5px;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 0 5px 5px 0; }

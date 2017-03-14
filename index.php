@@ -2,13 +2,14 @@
     $pdo = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
-    $statement = $pdo->query('SELECT * FROM clients');
+    $statement = $pdo->query('SELECT * FROM clients LIMIT 20');
     $resultatExo1 = $statement->fetchAll();
 
     $statement = $pdo->query("
     	SELECT type, genres.genre AS firstGenre, secGenres.genre AS secGenre
     	FROM showTypes, genres, genres AS secGenres
     	WHERE showTypes.id = genres.showTypesId AND showTypes.id = secGenres.showTypesId
+    	ORDER BY genres.id
     	");
     $resultatExo2 = $statement->fetchAll();
 
@@ -23,7 +24,7 @@
     <title>Test pdo</title>
 </head>
 <body>
-    <h2>Exercice 1</h2>
+    <h2>Exercice 1 + 2</h2>
     	<table>
 	    	<thead>
 		    	<tr>
@@ -74,5 +75,6 @@
 		    </tbody>
     	</table>
 
+    	
 
 </body>
