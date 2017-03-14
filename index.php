@@ -14,6 +14,15 @@
     $resultatExo2 = $statement->fetchAll();
 
 
+    $statement =$pdo->query("
+    	SELECT lastName, firstName 
+    	FROM clients 
+    	WHERE lastName 
+    	LIKE 'm%'
+    	ORDER BY lastName
+    	");
+	$resultatExo5 = $statement->fetchAll();
+
     $pdo = null;
     
 ?>
@@ -74,7 +83,11 @@
 		    <?php endforeach; ?>
 		    </tbody>
     	</table>
+		<h2>Exercice 5</h2>
+		<?php foreach ($resultatExo5 as $value) : ?>
+		<p><u>Nom<?= $value->lastName; ?></u><u>Prénom<?= $value->firstName; ?></u></p>
 
+		<?php endforeach; ?>
     	
 
 </body>
