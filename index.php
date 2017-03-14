@@ -2,7 +2,7 @@
     $pdo = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
-    $statement = $pdo->query('SELECT * FROM clients LIMIT 20');
+    $statement = $pdo->query('SELECT * FROM clients WHERE card = 1');
     $resultatExo1 = $statement->fetchAll();
 
     $statement = $pdo->query("

@@ -2,12 +2,22 @@ body{
 
 }
 
+h2{
+	text-align: center;
+	border:1px solid black;
+	border-radius: 5px;
+	border-color: #2E8B57;
+}
 table tr td{
 
-	border:2px solid black;
+	border:3px solid black;
 	color: black;
 	border-color: #2E8B57;
 	border-radius: 5px;
 	text-align: center;
 	box-shadow: 0 5px 5px 0;
+}
+
+table{
+	margin: auto;
 }
