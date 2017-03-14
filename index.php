@@ -21,7 +21,25 @@
     	LIKE 'm%'
     	ORDER BY lastName
     	");
+
+
 	$resultatExo5 = $statement->fetchAll();
+
+	$statement =$pdo->query("
+    	SELECT date, startTime, performer, title
+    	FROM shows
+    	ORDER BY title
+    	");
+
+		$resultatExo6 = $statement->fetchAll();
+
+		$statement =$pdo->query("
+    	SELECT *
+    	FROM clients
+    	");
+
+		$resultatExo7 = $statement->fetchAll();
+
 
     $pdo = null;
     
@@ -85,9 +103,34 @@
     	</table>
 		<h2>Exercice 5</h2>
 		<?php foreach ($resultatExo5 as $value) : ?>
-		<p><u>Nom<?= $value->lastName; ?></u><u>Prénom<?= $value->firstName; ?></u></p>
+		<p><u>Nom <?= $value->lastName; ?></u><u> Prénom <?= $value->firstName; ?></u></p>
 
 		<?php endforeach; ?>
-    	
+
+		<h2>Exercice 6</h2>
+
+
+		<?php foreach ($resultatExo6 as $value) : ?>
+
+		 <p>le spectacle<?= $value->title; ?> par <?= $value->performer; ?> le <?= $value->date; ?> à <?= $value->startTime; ?></p>
+
+		<?php endforeach; ?>
+
+		<h2>Exercice 7</h2>
+
+		<?php foreach ($resultatExo7 as $value) : ?>
+			<p>nom <?= $value->lastName; ?> prenom <?= $value->firstName; ?> date de naisssance <?= $value->birthDate; ?> carte de fidélitée
+			<?php
+			if ($value->card==1){
+				echo 'oui '.$value->cardNumber;
+				}else{
+					echo 'non ';
+				} endforeach?>
+
+
+
+
+		
+
 
 </body>
