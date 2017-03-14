@@ -1,0 +1,5 @@
+table tr td {
+  border: 1px solid black;
+  color: black;
+  background-color: lime;
+  border-radius: 5px; }
