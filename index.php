@@ -6,9 +6,9 @@
     $resultatExo1 = $statement->fetchAll();
 
     $statement = $pdo->query("
-    	SELECT type, genres.genre AS firstGenre, genres.genre AS secGenre
-    	FROM showTypes, genres
-    	WHERE showTypes.id = genres.showTypesId
+    	SELECT type, genres.genre AS firstGenre, secGenres.genre AS secGenre
+    	FROM showTypes, genres, genres AS secGenres
+    	WHERE showTypes.id = genres.showTypesId AND showTypes.id = secGenres.showTypesId
     	");
     $resultatExo2 = $statement->fetchAll();
 
