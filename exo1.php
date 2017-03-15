@@ -1,6 +1,12 @@
 <?php
    $message = [];
     $donnee = [];
+       $pdo= new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8','root','');
+       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+    $statement=$pdo->query('SELECT id, type FROM cardTypes');
+    $typedecarte=$statement->fetchAll();
+
    if(isset($_POST)&& !empty($_POST)){
      
 
@@ -33,9 +39,6 @@
    
 
    if(empty($message)){
-       $pdo= new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8','root','');
-       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 
        $req = $pdo->prepare("    INSERT INTO clients
                                SET     lastName= :lastName,
@@ -49,22 +52,18 @@
        $message['success'][] = 'le client est bien ajouté';
 
 
-      
-
+    
    }
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<a href="exo1.php">exo1</a>
-<a href="exo2.php">exo2</a>
-<a href="exo3.php">exo3</a>
-   <link rel="stylesheet" type="text/css" href="style/css/style1.css">
+<a href="formulaire.php">RETOUR</a>
+   <link rel="stylesheet" type="text/css" href="style/css/Style.css">
    <title>Ajout client</title>
 </head>
 <body>
-<h1>Ajout Client</h1>
    <ul>
        <?php
             foreach ($message as $key => $tableau) {
@@ -81,9 +80,17 @@
        <input type="text" name="prenom" maxlength="45" id="prenom">
        <label for="date">Date de naissance</label>
        <input type="date" name="date" id="date">
-       <label for="card">Carte de fidélité</label>
        <input type="checkbox" name="card" id="card">Oui
-       <input type="number" name="cardNumber" placeholder="numéro de carte">
+        <input type="number" name="cardNumber" placeholder="numéro de carte">
+        <select name='typecarte'>
+
+         <?php
+                foreach ($typedecarte as$value) {
+                    echo '<option value="'.$value->id.'">'.$value->type.'</option>';
+                }
+            ?>
+            
+        </select>
        <button type="submit">ok</button>
    </form>
 

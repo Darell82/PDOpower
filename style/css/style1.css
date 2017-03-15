@@ -1,0 +1,22 @@
+input[type="number"] {
+  display: none; }
+  input[type="checkbox"]:checked ~ input[type="number"] {
+    display: inline; }
+
+li.danger {
+  color: red; }
+li.sucess {
+  color: lime; }
+
+body {
+  background-color: #00e64d; }
+
+h1 {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #FFFFFF; }
+
+form {
+  text-align: center;
+  margin-top: 200px; }
