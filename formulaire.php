@@ -37,7 +37,7 @@
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 
-       $req = $pdo->prepare("    INSERT INTO clients
+       $req = $pdo->prepare("  INSERT INTO clients
                                SET     lastName= :lastName,
                                        firstName= :firstName,
                                        birthDate= :birthDate,

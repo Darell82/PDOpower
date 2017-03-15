@@ -60,10 +60,11 @@
 <html>
 <head>
 <a href="formulaire.php">RETOUR</a>
-   <link rel="stylesheet" type="text/css" href="style/css/Style.css">
+   <link rel="stylesheet" type="text/css" href="style/css/style1.css">
    <title>Ajout client</title>
 </head>
 <body>
+<h1>Ajout client</h1>
    <ul>
        <?php
             foreach ($message as $key => $tableau) {
@@ -89,7 +90,7 @@
                     echo '<option value="'.$value->id.'">'.$value->type.'</option>';
                 }
             ?>
-            
+
         </select>
        <button type="submit">ok</button>
    </form>
