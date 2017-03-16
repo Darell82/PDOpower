@@ -47,6 +47,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<link rel="stylesheet" href="style/css/style.css" />
     <title>Test pdo</title>
 </head>
